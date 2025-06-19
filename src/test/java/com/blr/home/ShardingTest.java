@@ -5,6 +5,8 @@ import com.microsoft.playwright.Browser;
 import com.microsoft.playwright.Page;
 import org.junit.jupiter.api.Test;
 
+import java.nio.file.Paths;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ShardingTest {
@@ -16,6 +18,10 @@ public class ShardingTest {
             Page page = browser.newContext().newPage();
             String url = page.navigate("https://www.example.com").url();
             assertEquals("https://www.example.com/", url);
+
+            // Take a screenshot and save it to the "screenshots" directory
+            page.screenshot(new Page.ScreenshotOptions()
+                .setPath(Paths.get("build/reports/screenshots/example.png")));
         }
     }
 }

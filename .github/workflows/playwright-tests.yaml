@@ -36,8 +36,8 @@ jobs:
       - name: Run Playwright Tests
         run: ./gradlew test
 
-      - name: Upload Test Report
+      - name: Upload Screenshots
         uses: actions/upload-artifact@v4
         with:
-          name: test-report
-          path: build/reports/tests/test
+          name: screenshots
+          path: build/reports/screenshots
