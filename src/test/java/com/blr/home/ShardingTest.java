@@ -19,7 +19,7 @@ public class ShardingTest {
             Page page = browser.newContext().newPage();
 
             // Start tracing
-            page.context().tracing().start(new com.microsoft.playwright.Tracing.StartOptions()
+            page.context().tracing().start(new Tracing.StartOptions()
                 .setScreenshots(true)
                 .setSnapshots(true));
 
@@ -31,7 +31,8 @@ public class ShardingTest {
                 .setPath(Paths.get("build/reports/screenshots/example.png")));
 
             // Stop tracing and save the trace file
-            page.context().tracing().stop((Tracing.StopOptions) Paths.get("build/reports/trace.zip"));
+            page.context().tracing().stop(new Tracing.StopOptions()
+                .setPath(Paths.get("build/reports/trace.zip")));
         }
     }
 }
