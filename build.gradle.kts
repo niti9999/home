@@ -24,21 +24,11 @@ repositories {
 }
 
 dependencies {
+    testImplementation("junit:junit:4.13.2")
     implementation("org.springframework.boot:spring-boot-starter-web")
     compileOnly("org.projectlombok:lombok")
     annotationProcessor("org.projectlombok:lombok")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
-    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
-    testImplementation("io.cucumber:cucumber-spring:7.23.0")
-
-    testImplementation("io.cucumber:cucumber-junit:7.23.0")
-
-    implementation("io.cucumber:cucumber-java:7.23.0")
-
-    //mongo atlas
-    implementation("org.mongodb:mongodb-driver-sync:5.4.0")
-
-    //playwright
     implementation("com.microsoft.playwright:playwright:1.44.0")
 }
 

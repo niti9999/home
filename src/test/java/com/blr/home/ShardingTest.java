@@ -1,21 +1,21 @@
 package com.blr.home;
 
 import com.microsoft.playwright.Playwright;
-import org.junit.Test;
+import com.microsoft.playwright.Browser;
+import com.microsoft.playwright.Page;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ShardingTest {
 
     @Test
     public void testPlaywrightSharding() {
         try (Playwright playwright = Playwright.create()) {
-            String url = playwright.chromium().launch()
-                    .newContext()
-                    .newPage()
-                    .navigate("https://www.example.com")
-                    .url();
-            assertEquals("https://www.example.com", url);
+            Browser browser = playwright.chromium().launch();
+            Page page = browser.newContext().newPage();
+            String url = page.navigate("https://www.example.com").url();
+            assertEquals("https://www.example.com/", url);
         }
     }
 }
